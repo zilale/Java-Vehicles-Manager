@@ -1,0 +1,46 @@
+<html><head>
+  <SCRIPT src="http://java.com/js/dtjava.js"></SCRIPT>
+<script>
+    function launchApplication(jnlpfile) {
+        dtjava.launch(            {
+                url : 'VehiclesManager.jnlp'
+            },
+            {
+                javafx : '8.0+'
+            },
+            {}
+        );
+        return false;
+    }
+</script>
+
+<script>
+    function javafxEmbedClasses() {
+        dtjava.embed(
+            {
+                id : 'Classes',
+                toolkit : 'swing',
+                url : 'VehiclesManager_browser.jnlp',
+                placeholder : 'javafx-app-placeholder',
+                width : '0',
+                height : '0'
+            },
+            {
+                javafx : '8.0+'
+            },
+            {
+                onGetSplash : function() {}
+            }
+        );
+    }
+    <!-- Embed FX application into web page once page is loaded -->
+    dtjava.addOnloadCallback(javafxEmbedClasses);
+</script>
+
+</head><body>
+<h2>Test page for <b>VehiclesManager</b></h2>
+  <b>Webstart:</b> <a href='VehiclesManager.jnlp' onclick="return launchApplication('VehiclesManager.jnlp');">click to launch this app as webstart</a><br><hr><br>
+
+  <!-- Applet will be inserted here -->
+  <div id='javafx-app-placeholder'></div>
+</body></html>
